@@ -19,6 +19,10 @@ def get_db():
         yield db
     finally:
         db.close()
+@app.get("/")
+def root():
+   return {"status" : 'Sever on Live'}
+
 
 @app.get("/login")
 def login_user(user : Login, db : Session = Depends(get_db)):
