@@ -24,7 +24,7 @@ def root():
    return {"status" : 'Sever on Live'}
 
 
-@app.get("/login")
+@app.post("/login")
 def login_user(user : Login, db : Session = Depends(get_db)):
    try :
       is_existing_user = db.query(User).filter(user.email == User.user_email).first()
